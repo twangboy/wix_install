@@ -8,7 +8,7 @@ The compiled exe can be found in the debug folder:
 [Download Here](https://github.com/Wintellect/Paraffin)
 
 ##WixToolset
-The WixToolset has many utilities for creating MSI Files. The ones we need are Candle and Light
+The WixToolset has many utilities for creating MSI Files. The ones we need are Candle and Light.
 [Download Here](http://wixtoolset.org/releases/)
 
 ##How to use
