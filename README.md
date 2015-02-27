@@ -6,3 +6,5 @@ https://github.com/Wintellect/Paraffin
 
 WixToolset (has Candle and Light)
 http://wixtoolset.org/releases/
+
+Batchfiles and salt.wxs file must be in the root folder of the directory containing the compiled binaries and necessary files.
