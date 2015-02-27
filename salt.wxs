@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+	<!--Product element-->
+	<!--Describes the software that's in the installer-->
+    <Product Id="4C97E40C-B1EF-476F-9D53-BEA5C4B49CBC" 
+			 Name="Salt" Language="1033" 
+			 Version="14.7.2.0" 
+			 Manufacturer="SaltStack, Inc." 
+			 UpgradeCode="385826C9-F732-4CBC-9C88-DA49F5BC0514">
+			 
+		<!--Package Element-->
+		<!--Describes the installer-->
+        <Package Description="Salt Minion for Windows" 
+				 Comments="(c) 2015 SaltStack, Inc." 
+				 InstallerVersion="200" 
+				 Compressed="yes" 
+				 InstallScope="perMachine" 
+				 Manufacturer="SaltStack, Inc. (slee)" 
+				 Keywords="Salt,Installer,MSI" />
+				 
+		<!--Media Element-->
+		<!--The new way is to use the MediaTemplate-->
+		<!--Using media to maintain backwards compatibility with older editors-->
+		<!--Allows you to name the cabfile-->
+        <Media Id="1"
+			   Cabinet="salt.cab"
+			   EmbedCab="yes" />
+        
+		<!--Directory Element-->
+		<!--Tells us where it will be installed-->
+		<!--By not supplying ProgramFilesFolder option I'm hoping it will install to C:-->
+		<!--First Directory Element is required-->
+		<!--Second one is the first folder-->
+		<!--You can keep nesting folders underneath-->
+		<!--You can then add the components for each file under that directory-->
+		<!--We're going to list our files in a separate file for tidiness-->
+		<Directory Id="TARGETDIR"
+				   Name="SourceDir">
+            <Directory Id="INSTALLDIR" 
+				   Name="Salt" />
+        </Directory>
+		
+		<DirectoryRef Id="INSTALLDIR">
+			
+		</DirectoryRef>
+		
+		<Feature Id="DefaultFeature" 
+				 Title="Salt"
+				 Description="salt Minion Installation"
+				 Level="1"
+				 ConfigurableDirectory="INSTALLDIR">
+			
+			<ComponentGroupRef Id="salt_files" />
+				
+        </Feature>
+        <UI />
+    </Product>
+</Wix>
