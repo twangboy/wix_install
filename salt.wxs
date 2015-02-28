@@ -46,7 +46,7 @@
 		</DirectoryRef>
 		
 		<Feature Id="DefaultFeature" 
-				 Title="Salt"
+				 Title="Salt [Version]"
 				 Description="salt Minion Installation"
 				 Level="1"
 				 ConfigurableDirectory="INSTALLDIR">
@@ -54,6 +54,9 @@
 			<ComponentGroupRef Id="salt_files" />
 				
         </Feature>
-        <UI />
+		
+		<UIRef Id="SaltUI_Mondo" />
+		<UIRef Id="WixUI_ErrorProgressText" />
+		
     </Product>
 </Wix>
